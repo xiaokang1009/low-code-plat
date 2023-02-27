@@ -10,10 +10,10 @@ module.exports = {
     'eslint:recommended',
     'plugin:vue/vue3-recommended',
     'plugin:@typescript-eslint/recommended',
-    "plugin:prettier/recommended"
+    'plugin:prettier/recommended'
   ],
   overrides: [],
-  parser: '@typescript-eslint/parser',
+  parser: 'vue-eslint-parser',
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
@@ -23,6 +23,8 @@ module.exports = {
   rules: {
     'vue/comment-directive': 'error',
     'vue/jsx-uses-vars': 'error',
-    'vue/script-setup-uses-vars': 'error'
+    'vue/script-setup-uses-vars': 'error',
+    'vue/multi-word-component-names': 'off',
+    'vue/no-deprecated-v-on-native-modifier': 'off'
   }
 }

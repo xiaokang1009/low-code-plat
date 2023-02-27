@@ -1,0 +1,10 @@
+:root {
+  --top-header-height: 50px;
+  --aside-height: calc(100vh - var(--top-header-height));
+  --aside-left-width: 300px;
+  --aside-right-width: 300px;
+  --main-height: var(--aside-height);
+  --main-width: calc(
+    100vw - var(--aside-left-width) - var(--aside-right-width)
+  );
+}

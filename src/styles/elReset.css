@@ -1,0 +1,10 @@
+.editor-search .el-input__wrapper {
+  border-radius: 0;
+  box-shadow: none;
+}
+.editor-collapse .el-collapse-item__wrap {
+  border-bottom: none;
+}
+.editor-collapse .el-collapse-item__header {
+  border-bottom: none;
+}
