@@ -1,5 +1,3 @@
-/** * @Author xiaokang1009 * @Date 2023/2/27 * @LastEditor xiaokang1009 *
-@LastEditTime 2023/2/27 * @Description 侧边菜单栏 */
 <template>
   <SideBox width="var(--aside-left-width)" class="l_aside_left">
     <!-- 左侧菜单栏 -->
@@ -32,12 +30,18 @@
           <div class="collapse-content">
             <el-row>
               <el-col :span="12">
-                <div class="editor-grid__item">
+                <DragEvent
+                  :icon="'icon-link'"
+                  :title="'链接(Llink)'"
+                  :type="'lLink'"
+                >
                   <div class="component_preview">
                     <span class="iconfont icon-link"></span>
-                    <span class="component_preview_text">链接</span>
+                    <span class="component_preview_text" title="链接(lLink)"
+                      >链接</span
+                    >
                   </div>
-                </div>
+                </DragEvent>
               </el-col>
               <el-col :span="12">
                 <div class="editor-grid__item">
@@ -98,6 +102,7 @@ import {
   List
 } from '@element-plus/icons-vue'
 import SideBox from '@/components/SideBox/index.vue'
+import DragEvent from '@/components/DragEvent/index.vue'
 
 const searchText = ref('')
 const activeNames = ref([])
@@ -106,6 +111,9 @@ const handleChange = (val: string[]) => {
 }
 const handleClear = () => {
   searchText.value = ''
+}
+const handleSearch = () => {
+  console.log(searchText.value)
 }
 </script>
 
@@ -144,21 +152,35 @@ const handleClear = () => {
 .editor-grid__item {
   box-sizing: border-box;
   padding: 0 10px;
+  cursor: grab;
   .component_preview {
+    user-select: none;
     height: 100%;
     border-radius: 4px;
     border: 1px solid #e2e2e2;
-    cursor: grab;
     display: flex;
     align-items: center;
     .iconfont {
       padding-left: 6px;
       padding-right: 4px;
       color: #000;
+      pointer-events: none;
+    }
+    .component_preview_text {
+      display: inline-block;
+      max-width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      pointer-events: none;
     }
     &:hover {
       border-color: #409eff;
     }
   }
+}
+.l_aside_left {
+  padding: 0;
+  height: var(--aside-height);
 }
 </style>

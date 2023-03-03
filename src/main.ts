@@ -7,8 +7,8 @@ import './styles/reset.css'
 import './styles/nums.css'
 import './styles/elReset.css'
 import './styles/iconfont.css'
+import store from './stores'
 
 const app = createApp(App)
-app.use(ElementPlus)
-app.use(router)
+app.use(store).use(ElementPlus).use(router)
 app.mount('#app')

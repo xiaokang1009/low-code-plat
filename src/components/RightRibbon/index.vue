@@ -1,5 +1,3 @@
-/** * @Author xiaokang1009 * @Date 2023/2/27 * @LastEditor xiaokang1009 *
-@LastEditTime 2023/2/27 * @Description */
 <template>
   <SideBox width="var(--aside-right-width)" class="l_aside_right">
     <!-- 右侧功能栏 -->
