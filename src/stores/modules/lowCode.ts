@@ -13,7 +13,7 @@ export const useLowCodeStore = defineStore('lowCode', {
         isTarget: false
       }
     ],
-    componentsStack: [] as Array<any>,
+    componentsStack: new Map<string, unknown>(),
     styles: [
       {
         type: 'lLink'
@@ -31,8 +31,8 @@ export const useLowCodeStore = defineStore('lowCode', {
         ...component
       }
     },
-    setComponentsStack(component: any) {
-      this.componentsStack.push(component)
+    setComponentsStack(component: unknown, tags: string) {
+      this.componentsStack.set(tags, component)
     }
   }
 })

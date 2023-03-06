@@ -31,33 +31,9 @@ const component = reactive<lLinkProps>({
   id: initValue.id,
   isTarget: initValue.isTarget
 })
-
-useLowCode.setComponentsStack({
-  type: 'lLink',
-  id: component.id,
-  text: component.text,
-  href: component.href,
-  isTarget: component.isTarget,
-  style: {
-    x: link.value?.offsetLeft + 'px',
-    y: link.value?.offsetTop + 'px',
-    w: link.value?.offsetWidth + 'px',
-    h: link.value?.offsetHeight + 'px'
-  }
+onMounted(() => {
+  console.log(link.value?.$el.offsetWidth)
 })
-watch(
-  useLowCode.componentsStack,
-  async (newVal, oldVal) => {
-    const cpt = newVal[newVal.length - 1]
-    if (component.type === 'lLink') {
-      component.href = cpt.href
-      component.text = cpt.text
-      component.id = cpt.id
-      component.isTarget = cpt.isTarget
-    }
-  },
-  { deep: true }
-)
 </script>
 <style scoped lang="less">
 .el-link {
